@@ -1,3 +1,6 @@
+> 🚧 **Proyecto en desarrollo.** El análisis exploratorio está en curso. Próximamente: visualizaciones, conclusiones y organización del repositorio.
+
+
 YouTube Trending Videos - Análisis Exploratorio
 
 Descripción
