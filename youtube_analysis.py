@@ -1,8 +1,3 @@
-
-  
-   
-
-
 # ––– 1. Importa Librerias –––
 
 import pandas as pd
@@ -11,7 +6,7 @@ import seaborn as sns
 
 # ––– 2. Carga de Datos –––
 
-df = pd.read_csv("/Users/mcarthur/Desktop/Archivos/USvideos.csv")
+df = pd.read_csv("data/USvideos.csv")
 
 # ––– 3. Exploración Inicial –––
 
@@ -65,6 +60,7 @@ plt.xlabel("Categoria")
 plt.ylabel("Vistas promedio")
 plt.xticks(rotation=45, ha="right")
 plt.tight_layout()
+plt.savefig("categorias.png")
 plt.show()
 
 # ––– 9. Relación entre Likes y Vistas –––
