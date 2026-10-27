@@ -30,6 +30,11 @@ category_map = {
 df["category_name"] = df["category_id"].map(category_map).fillna("Otra")
 print("IDs sin nombre:", df.loc[df["category_name"] == "Otra", "category_id"].unique())
 
+#print(df[["trending_date", "publish_time"]].head())
+
+df["days_to_trending"] = (df["trending_date"] - df["publish_time"].dt.normalize()).dt.days
+print(df["days_to_trending"].describe())
+
 # 5. Quitar columnas que Tableau no necesita
 df = df.drop(columns=["thumbnail_link", "description"])
 
