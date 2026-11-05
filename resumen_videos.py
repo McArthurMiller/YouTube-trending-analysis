@@ -42,6 +42,9 @@ print(f"Suma real (una vez por video): {videos['max_views'].sum():,}")
 # 7. Cuantos dias dura un video en tendencia?
 print(videos["days_in_trending"].describe())
 
+videos["days_to_first_trending"] = (videos["first_trending"] - videos["publish_time"].dt.normalize()).dt.days
+print(videos["days_to_first_trending"].describe())
+
 # 8. Guardar la tabla de una fila por video
 videos.to_csv(ARCHIVO_VIDEOS, index=False)
 print(f"Guardado: {ARCHIVO_VIDEOS}")
