@@ -69,3 +69,23 @@ ORDER BY mediana DESC
 """
 
 duckdb.sql(consulta).show()
+
+
+
+
+CONTROVERSIA = "data/videos_controversia.csv"
+
+# 6. Canales con mayor mediana de controversia, solo canales con 10 videos o más
+consulta = f"""
+SELECT
+    channel_title,
+    MEDIAN(controversia) AS mediana,
+    COUNT(*)           AS videos
+FROM '{CONTROVERSIA}'
+GROUP BY channel_title
+HAVING COUNT(*) >= 10
+ORDER BY mediana DESC
+LIMIT 5
+"""
+
+duckdb.sql(consulta).show()
