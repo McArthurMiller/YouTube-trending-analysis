@@ -52,3 +52,20 @@ LIMIT 5
 """
 
 duckdb.sql(consulta).show()
+
+
+ENGAGEMENT = "data/videos_engagement.csv"
+
+# 5. Mediana de engagement por categoría, solo categorías con 50 videos o más
+consulta = f"""
+SELECT
+    category_name,
+    MEDIAN(engagement) AS mediana,
+    COUNT(*)           AS videos
+FROM '{ENGAGEMENT}'
+GROUP BY category_name
+HAVING COUNT(*) >= 50
+ORDER BY mediana DESC
+"""
+
+duckdb.sql(consulta).show()
